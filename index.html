@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio of Yovita Zahra Khoerinisa — technology, operations, governance, and digital delivery.">
+  <meta name="theme-color" content="#f7f6f2">
+  <title>Yovita Zahra Khoerinisa — Portfolio</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --site-primary: #242424;
+      --site-secondary: #000000;
+      --site-background: #fffcf5;
+      --site-on-primary: #d8d5ca;
+      --site-on-secondary: #;
+      --site-on-background: #17243b;
+      --site-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --site-font-heading: Georgia, "Times New Roman", serif;
+      --site-heading-scale: 1;
+      --site-spacing-scale: 1;
+      --site-radius-scale: 1;
+      --site-decoration-opacity: 1;
+      --ink: light-dark(#17243b, #000000);
+      --muted: light-dark(#54575c, #b0b8c4);
+      --paper: light-dark(#f7f6f2, #111821);
+      --panel: light-dark(#ffffff, #1a2430);
+      --line: light-dark(#d9dce0, #394553);
+      --accent: light-dark(#53657e, #aab8cb);
+      --soft: light-dark(#eceff2, #253140);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--site-font-body); line-height: 1.65; }
+    #site-root { min-height: 100vh; width: 100%; border-radius: 0; background-color: var(--site-background); color: var(--site-on-background); overflow: hidden; }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+    .topbar { position: sticky; top: 0; z-index: 10; background: light-dark(rgba(247,246,242,.94), rgba(17,24,33,.94)); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-size: 13px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 26px; }
+    .nav-links a { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; color: var(--muted); transition: color .2s; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--ink); }
+    .menu-button { display: none; border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 2px; padding: 8px 12px; font: inherit; font-size: 12px; }
+    .hero { padding: clamp(76px, 12vw, 148px) 0 96px; position: relative; }
+    .eyebrow { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--accent); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 880px; margin: 26px 0 26px; font-family: var(--site-font-heading); font-size: clamp(48px, 8.6vw, 104px); line-height: .98; letter-spacing: -.055em; font-weight: 500; }
+    h1 span { color: var(--muted); font-style: italic; }
+    .hero-bottom { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: end; margin-top: 46px; }
+    .hero-intro { max-width: 590px; color: var(--muted); font-size: clamp(16px, 2vw, 19px); line-height: 1.8; }
+    .hero-aside { justify-self: end; max-width: 260px; padding-left: 20px; border-left: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    .hero-aside strong { display: block; color: var(--ink); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 18px; border: 1px solid var(--site-primary); background: var(--site-primary); color: var(--site-on-primary); text-decoration: none; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transition: transform .2s, background .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button.secondary { background: transparent; color: var(--ink); border-color: var(--line); }
+    .section { padding: 86px 0; border-top: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: .36fr 1fr; gap: 42px; margin-bottom: 48px; }
+    .section-number { color: var(--muted); font-size: 12px; letter-spacing: .15em; padding-top: 9px; }
+    h2 { font-family: var(--site-font-heading); font-size: clamp(36px, 5vw, 58px); font-weight: 500; line-height: 1.05; letter-spacing: -.04em; margin-bottom: 18px; }
+    .section-lead { max-width: 650px; color: var(--muted); margin-bottom: 0; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+    .about-grid p { color: var(--muted); }
+    .fact-list { border-top: 1px solid var(--line); }
+    .fact { display: flex; justify-content: space-between; gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+    .fact span:first-child { color: var(--muted); }
+    .fact strong { text-align: right; font-weight: 600; }
+    .timeline { border-top: 1px solid var(--line); }
+    .job { display: grid; grid-template-columns: .36fr 1fr; gap: 42px; padding: 30px 0 34px; border-bottom: 1px solid var(--line); }
+    .job-date { color: var(--muted); font-size: 12px; letter-spacing: .04em; padding-top: 6px; }
+    .job h3 { font-family: var(--site-font-heading); font-size: 27px; font-weight: 500; letter-spacing: -.02em; margin: 0 0 4px; }
+    .job-meta { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+    .job ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; }
+    .job li { padding: 3px 0; }
+    .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .work-card { min-height: 270px; display: flex; flex-direction: column; justify-content: space-between; padding: 28px; border: 1px solid var(--line); background: var(--panel); }
+    .work-card .index { color: var(--muted); font-size: 11px; letter-spacing: .14em; }
+    .work-card h3 { font-family: var(--site-font-heading); font-size: 30px; font-weight: 500; line-height: 1.1; letter-spacing: -.03em; margin: 32px 0 12px; }
+    .work-card p { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+    .tags { display: flex; gap: 7px; flex-wrap: wrap; }
+    .tag { padding: 5px 9px; border: 1px solid var(--line); color: var(--muted); font-size: 10px; letter-spacing: .07em; text-transform: uppercase; }
+    .skills-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; }
+    .skill-groups { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .skill-group { border-top: 1px solid var(--line); padding-top: 14px; }
+    .skill-group h3 { color: var(--muted); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 13px; }
+    .skill-group p { font-size: 14px; line-height: 1.9; margin: 0; }
+    .education { display: flex; justify-content: space-between; gap: 24px; padding: 24px 0; border-top: 1px solid var(--line); }
+    .education:last-child { border-bottom: 1px solid var(--line); }
+    .education h3 { font-family: var(--site-font-heading); font-size: 24px; font-weight: 500; margin: 0 0 5px; }
+    .education p { color: var(--muted); font-size: 13px; margin: 0; }
+    .education time { color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .contact { background: var(--site-primary); color: var(--site-on-primary); padding: 86px 0; }
+    .contact .eyebrow, .contact .section-number { color: #c6ced8; }
+    .contact h2 { max-width: 750px; font-size: clamp(42px, 7vw, 78px); }
+    .contact-copy { max-width: 540px; color: #c6ced8; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 32px; }
+    .contact-links a { color: white; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.45); padding-bottom: 5px; font-size: 13px; }
+    .contact-links a:hover { border-color: white; }
+    .footer { padding: 22px 0; display: flex; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 11px; letter-spacing: .06em; }
+    .back-top { text-decoration: none; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, 600px); }
+      .nav { min-height: 64px; }
+      .menu-button { display: inline-flex; }
+      .nav-links { display: none; position: absolute; left: 0; right: 0; top: 64px; padding: 18px; background: var(--paper); border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; gap: 16px; }
+      .nav-links.open { display: flex; }
+      .hero { padding: 76px 0 70px; }
+      .hero-bottom, .about-grid, .section-head, .job, .skills-layout { grid-template-columns: 1fr; gap: 22px; }
+      .hero-aside { justify-self: start; }
+      .section { padding: 64px 0; }
+      .section-head { margin-bottom: 32px; }
+      .section-number { padding-top: 0; }
+      .job { gap: 8px; }
+      .work-grid { grid-template-columns: 1fr; }
+      .work-card { min-height: 235px; }
+      .skills-layout { gap: 34px; }
+      .education { flex-direction: column; gap: 8px; }
+      .footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+    .hero-title { display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap-reverse; }
+    .hero-title h1 { margin: 26px 0; flex: 1 1 420px; }
+    .portrait { width: auto; height: auto; max-width: 280px; max-height: 360px; flex: 0 0 auto; display: block; }
+  </style>
+</head>
+<body>
+<div id="site-root">
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#home">YZK / Portfolio</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#journey">Journey</a><a href="#work">Selected work</a><a href="#skills">Capabilities</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="hero-title">
+          <h1>Yovita Zahra<br><span>Khoerinisa</span></h1>
+          <img src="images/profile.jpg" alt="Yovita Zahra Khoerinisa" class="portrait">
+        </div>
+        <div class="hero-bottom">
+          <div>
+            <p class="hero-intro">Detail-oriented Quality Assurance Engineer with experience in manual and automation testing across web, mobile (Android & iOS), and Generative AI applications. Skilled in test scenario design, functional testing, data validation, and production issue investigation. Experienced in collaborating with cross-functional teams to ensure application quality and system reliability, with additional experience coordinating QA automation initiatives.</p>
+            <div class="actions"><a class="button" href="#work">Explore my work</a><a class="button secondary" href="mailto:yovitazahra@gmail.com">Get in touch</a></div>
+          </div>
+          <aside class="hero-aside"><strong>Areas of experience</strong>Manual &amp; Automation Testing<br>Production Support<br>IT GRC<br></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section-head"><div class="section-number">01 / ABOUT</div><div><h2>A practical, curious approach to technology.</h2><p class="section-lead">My experience spans quality assurance, IT governance and risk, production support, and operational process improvement. I enjoy connecting the details of how a system works with the needs of the people who use it.</p></div></div>
+        <div class="about-grid">
+          <div><p>With a Computer Science background, I have worked with technical teams and business stakeholders in different environments—from enterprise applications and banking operations to process digitalization. These experiences have helped me build a versatile foundation in analysis, documentation, validation, and coordination.</p><p>I value clear communication, thoughtful problem-solving, and work that makes systems and processes more reliable.</p></div>
+          <div class="fact-list">
+            <div class="fact"><span>Based in</span><strong>Jakarta, Indonesia</strong></div>
+            <div class="fact"><span>Education</span><strong>Bachelor of Computer Science</strong></div>
+            <div class="fact"><span>University</span><strong>Universitas Gadjah Mada</strong></div>
+            <div class="fact"><span>Languages</span><strong>Indonesian · English</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="journey">
+      <div class="wrap">
+        <div class="section-head"><div class="section-number">02 / JOURNEY</div><div><h2>Experience shaped by different perspectives.</h2><p class="section-lead">A selection of roles across enterprise technology, financial services, governance, and operational support.</p></div></div>
+        <div class="timeline">
+          <article class="job"><div class="job-date">AUG 2025 — PRESENT</div><div><h3>Celerates · Onsite at Astra International</h3><div class="job-meta">Quality Assurance Engineer (Manual &amp; Automation) · Contract</div><ul><li>Design and execute test scenarios for HCIS web, Android and iOS applications, and Generative AI applications.</li><li>Validate functional requirements, customizations, edge cases, cross-platform behavior, and data flows.</li><li>Investigate production issues and collaborate with backend engineers and stakeholders on root-cause analysis.</li><li>Take on an additional Automation Team Lead responsibility for the annual automation initiative.</li></ul></div></article>
+          <article class="job"><div class="job-date">JUN 2025 — JUL 2025</div><div><h3>Ministry of Education and Culture Indonesia</h3><div class="job-meta">Finance Staff · Freelance</div><ul><li>Created automated attendance spreadsheets and helped transition manual workflows into digital formats.</li><li>Supported travel reimbursement for 200+ participants and organized 500+ travel-related documents.</li><li>Prepared financial summaries and reimbursement calculations using Excel.</li></ul></div></article>
+          <article class="job"><div class="job-date">MAR 2025 — JUN 2025</div><div><h3>SeaBank</h3><div class="job-meta">Production Support · Staff LINK</div><ul><li>Monitored product operations and followed up on application-system inquiries from customers and internal business units.</li><li>Coordinated with Bank Indonesia on interbank transaction activities and reported critical incidents to relevant regulatory bodies.</li></ul></div></article>
+          <article class="job"><div class="job-date">SEP 2024 — MAR 2025</div><div><h3>SeaBank</h3><div class="job-meta">IT Governance, Risk Management &amp; Compliance Intern · Digital and Tech</div><ul><li>Contributed to the creation and maintenance of IT and information-security policies and procedures.</li><li>Worked with standards and frameworks including ISO 27001, ITIL, COBIT, and PCI-DSS.</li><li>Collaborated across teams on risk identification and improvements to security protocols.</li></ul></div></article>
+          <article class="job"><div class="job-date">SEP 2023 — JAN 2024</div><div><h3>CIMB Niaga</h3><div class="job-meta">Quality Assurance Intern · Robotic Process Automation</div><ul><li>Created test cases, scenarios, and scripts for bot functionality and performance validation.</li><li>Led a UAT session that validated 100% of requirements, with documented user feedback reporting 95% satisfaction.</li><li>Completed testing deliverables 75% faster than the estimated timeline and created four System Design documents.</li></ul></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section-head"><div class="section-number">03 / SELECTED WORK</div><div><h2>Turning responsibilities into outcomes.</h2><p class="section-lead">A few examples that reflect the range of work I have contributed to. Details are intentionally high-level to respect employer and project confidentiality.</p></div></div>
+        <div class="work-grid">
+          <article class="work-card"><div class="index">01 — ENTERPRISE SYSTEMS</div><div><h3>Cross-platform HCIS &amp; GenAI validation</h3><p>Supported application quality across web, Android, iOS, and Generative AI experiences through scenario design, data validation, edge-case testing, and production investigation.</p><div class="tags"><span class="tag">System validation</span><span class="tag">Collaboration</span><span class="tag">GenAI</span></div></div></article>
+          <article class="work-card"><div class="index">02 — PROCESS AUTOMATION</div><div><h3>RPA testing &amp; user acceptance</h3><p>Prepared test scenarios and scripts, led UAT, documented feedback, and produced supporting system-design documentation for an RPA initiative.</p><div class="tags"><span class="tag">75% faster than estimate</span><span class="tag">100% requirements validated</span><span class="tag">95% satisfaction</span></div></div></article>
+          <article class="work-card"><div class="index">03 — GOVERNANCE &amp; RISK</div><div><h3>IT policy &amp; security support</h3><p>Contributed to IT and information-security policy and procedure work, with exposure to established standards and frameworks and cross-team risk collaboration.</p><div class="tags"><span class="tag">ISO 27001</span><span class="tag">ITIL</span><span class="tag">COBIT</span><span class="tag">PCI-DSS</span></div></div></article>
+          <article class="work-card"><div class="index">04 — OPERATIONAL DIGITALIZATION</div><div><h3>Finance workflow support</h3><p>Helped digitize attendance tracking and supported reimbursement operations with spreadsheet automation, document organization, and data verification.</p><div class="tags"><span class="tag">Excel</span><span class="tag">200+ participants</span><span class="tag">500+ documents</span></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="wrap">
+        <div class="section-head"><div class="section-number">04 / CAPABILITIES</div><div><h2>Tools, methods &amp; foundations.</h2><p class="section-lead">A practical toolkit developed through academic work and hands-on experience. The list reflects tools and technologies included in my CV.</p></div></div>
+        <div class="skills-layout">
+          <div class="skill-groups">
+            <div class="skill-group"><h3>Quality &amp; testing</h3><p>Jira<br>Postman<br>Playwright<br>WDIO</p></div>
+            <div class="skill-group"><h3>Systems &amp; platforms</h3><p>SAP S/4HANA<br>MLOps<br>Langfuse</p></div>
+            <div class="skill-group"><h3>Programming</h3><p>Python · JavaScript<br>HTML · CSS<br>C++ · C · Java · MySQL</p></div>
+            <div class="skill-group"><h3>Data &amp; productivity</h3><p>Microsoft Excel<br>PGAdmin4<br>PHPMyAdmin</p></div>
+          </div>
+          <div>
+            <div class="education"><div><h3>Universitas Gadjah Mada</h3><p>Bachelor of Computer Science · Faculty of Mathematics and Natural Sciences</p><p>Thesis: “Clickbait Detection Using Data Augmentation and DistilBERT”</p></div><time>2020 — 2024</time></div>
+            <div class="education"><div><h3>Learning across disciplines</h3><p>My work has brought together software quality, information security and governance, banking operations, and process improvement.</p></div><time>Ongoing</time></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="eyebrow">05 / CONTACT</div>
+        <h2>Let's connect and explore what we can build.</h2>
+        <p class="contact-copy">For professional opportunities, collaboration, or a conversation about technology and digital operations, feel free to reach out.</p>
+        <div class="contact-links"><a href="mailto:yovitazahra@gmail.com">yovitazahra@gmail.com ↗</a><a href="https://www.linkedin.com/in/yovita-zahra-khoerinisa/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/yovitazahra" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap footer"><span>© <span id="year">2026</span> Yovita Zahra Khoerinisa</span><a class="back-top" href="#home">Back to top ↑</a></footer>
+</div>
+<script>
+  const menuButton = document.querySelector('.menu-button');
+  const navLinks = document.querySelector('.nav-links');
+  menuButton.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(open));
+  });
+  navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+  }));
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
